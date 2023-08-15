@@ -18,11 +18,11 @@ pipeline {
             }
             post {
                 success{
-                    mail to: "xiao2364390271@gmail.com",
-                    subject: "Unit and Integration Tests - ${currentBuild.currentResult}",
-                    body: "Unit and Integration Tests status: ${currentBuild.currentResult}",
-                    attachLog: true,
-                    compressLog: true
+                    emailext(
+                        mail to: "xiao2364390271@gmail.com",
+                        subject: "Unit and Integration Tests - ${currentBuild.currentResult}",
+                        body: "Unit and Integration Tests status: ${currentBuild.currentResult}"
+                    )
                 }
             }
         }
