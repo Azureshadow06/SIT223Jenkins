@@ -19,7 +19,7 @@ pipeline {
             post {
                 success{
                     emailext(
-                        mail to: "xiao2364390271@gmail.com",
+                        to: "xiao2364390271@gmail.com",
                         subject: "Unit and Integration Tests - ${currentBuild.currentResult}",
                         body: "Unit and Integration Tests status: ${currentBuild.currentResult}"
                     )
