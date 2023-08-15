@@ -21,13 +21,13 @@ pipeline {
                 Unit tests help to verify that a specific part of the code works as expected and maintains the expected behavior.
                 The "mvn test" command invokes JUnit to run the unit tests and ensure that the code works correctly at the component level.*/
                 echo "Run unit tests using JUnit"
-                ehco 'mvn test'
+                echo 'mvn test'
 
                 /*Selenium is an open source automated testing framework widely used for testing web applications. 
                 It allows you to automate the interaction of the web browser with the user interface of the application.
                 The Command "mvn integration-test". Integration testing ensures that the different components of an application work together as expected.*/
                 echo "Run integration tests using Selenium"
-                echo 'mvn integration-test'
+                sh 'mvn integration-test'
             }
             post {
                 always{
