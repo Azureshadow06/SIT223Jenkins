@@ -63,7 +63,7 @@ pipeline {
                 /*This command simulates the use of OWASP ZAP. In a practical implementation, 
                 we can run the OWASP ZAP tool using the command line interface or invoked in a script.
                 The tool scans the URL http://localhost:8080 for security vulnerabilities.*/
-                echo 'owasp-zap -cmd -quickurl http://localhost:8080'
+                sh 'owasp-zap -cmd -quickurl http://localhost:8080'
                 
             }
             post {
