@@ -19,11 +19,6 @@ pipeline {
                 echo "Completed integration tests"
             }
         }
-        stage('Code Quality Check') {
-            steps {
-                echo "Check the quality of the code."
-            }
-        }
         stage('Deploy') {
             steps {
                 echo "deploy the application to a testing enviroment,$TESTING_ENVIRONMENT specified by the environment variable."
