@@ -18,7 +18,7 @@ pipeline {
             }
             post {
                 success{
-                    
+                    mail 
                     subject: "Cello~",
                     body: "Build was successful"
                 }
