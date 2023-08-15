@@ -19,8 +19,10 @@ pipeline {
             post {
                 success{
                     mail to: "xiao2364390271@gmail.com",
-                    subject: "Unit and Integration Tests - ${currentBuild.currentResult}",
-                    body: "Test Stage Status: $testStageStatus\nAnalysis Stage Status: $analysisStageStatus"
+                    subject: "Cello~",
+                    body: "Build was successful"
+                    
+                }
             }
         }
         stage('Code Analysis') {
@@ -64,5 +66,4 @@ pipeline {
             }
         }
     }
-}
 }
