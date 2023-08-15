@@ -19,8 +19,8 @@ pipeline {
             post {
                 success{
                     mail to: "xiao2364390271@gmail.com",
-                    subject: "Cello2~",
-                    body: "Build was successful"
+                    subject: "Unit and Integration Tests - ${currentBuild.currentResult}",
+                    body: "Unit and Integration Tests status: ${currentBuild.currentResult}"
                 }
             }
         }
