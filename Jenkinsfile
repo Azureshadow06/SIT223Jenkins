@@ -6,6 +6,13 @@ pipeline {
                 echo "Build the code using Maven"
                 echo 'mvn clean package'
             }
+            post {
+                success{
+                    mail to: "xiao2364390271@gmail.com",
+                    subject: "Cello~",
+                    body: "Build was successful"
+                }
+            }
             
         }
         stage('Unit and Integration Tests') {
