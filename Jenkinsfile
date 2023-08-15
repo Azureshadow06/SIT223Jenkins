@@ -18,11 +18,9 @@ pipeline {
             }
             post {
                 success{
-                    emailext (
-                            mail to: "xiao2364390271@gmail.com",
-                            subject: "Cello~",
-                            body: "Build was successful"
-                        )
+                    mail to: "xiao2364390271@gmail.com",
+                    subject: "Cello2~",
+                    body: "Build was successful"
                 }
             }
         }
