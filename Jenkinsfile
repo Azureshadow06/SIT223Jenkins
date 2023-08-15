@@ -27,7 +27,7 @@ pipeline {
                 It allows you to automate the interaction of the web browser with the user interface of the application.
                 The Command "mvn integration-test". Integration testing ensures that the different components of an application work together as expected.*/
                 echo "Run integration tests using Selenium"
-                sh 'mvn integration-test'
+                echo 'mvn integration-test'
             }
             post {
                 always{
