@@ -20,11 +20,7 @@ pipeline {
                 success{
                     mail to: "xiao2364390271@gmail.com",
                     subject: "Unit and Integration Tests - ${currentBuild.currentResult}",
-                    body: "Test Stage Status: $testStageStatus\nAnalysis Stage Status: $analysisStageStatus",
-                    mimeType: 'text/plain' {
-                        attachData(testLogs, 'test_logs.txt', 'text/plain')
-                        attachData(analysisLogs, 'analysis_logs.txt', 'text/plain')
-                }
+                    body: "Test Stage Status: $testStageStatus\nAnalysis Stage Status: $analysisStageStatus"
             }
         }
         stage('Code Analysis') {
@@ -69,4 +65,4 @@ pipeline {
         }
     }
 }
-
+}
