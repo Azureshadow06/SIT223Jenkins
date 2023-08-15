@@ -19,8 +19,8 @@ pipeline {
             post {
                 success{
                     mail to: "xiao2364390271@gmail.com",
-                    subject: "Cello~",
-                    body: "Build was successful"
+                    subject: "Pipeline Notification",
+                    body: "Test Stage Status: $testStageStatus\nAnalysis Stage Status: $analysisStageStatus"
                     
                 }
             }
