@@ -32,7 +32,7 @@ pipeline {
         stage('Approval') {
             steps {
                 echo "Waiting for manual approval.."
-                sleep(time: 10, unit: 'SECONDS')
+                sleep(time: 1, unit: 'SECONDS')
             }
         }
         stage('Deploy to Production') {
