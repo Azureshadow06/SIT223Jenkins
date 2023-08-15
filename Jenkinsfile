@@ -3,62 +3,67 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    echo "Build the code using Maven"
-                    echo 'mvn clean package'
-                }
+                echo "Build the code using Maven"
+                echo 'mvn clean package'
             }
+            
         }
         stage('Unit and Integration Tests') {
             steps {
-                script {
-                    echo "Run unit tests using JUnit"
-                    echo 'mvn test'
+                echo "Run unit tests using JUnit"
+                echo 'mvn test'
 
-                    echo "Run integration tests using a tool like Selenium"
-                    echo 'mvn integration-test'
+                echo "Run integration tests using a tool like Selenium"
+                echo 'mvn integration-test'
+            }
+            post {
+                always {
+                    emailext subject: "Code Analysis - ${currentBuild.result}",
+                             body: "Code Analysis status: ${currentBuild.result}",
+                             to: "xiao2374390271@gmail.com"
                 }
             }
         }
         stage('Code Analysis') {
             steps {
-                script {
-                    echo "Integrate a code analysis tool (e.g., SonarQube)"
-                    echo 'mvn sonar:sonar'
-                }
+                
+                echo "Integrate a code analysis tool (e.g., SonarQube)"
+                echo 'mvn sonar:sonar'
+                
             }
         }
         stage('Security Scan') {
             steps {
-                script {
-                    echo "Perform a security scan using a tool (e.g., OWASP ZAP)"
-                    echo 'owasp-zap -cmd -quickurl http://localhost:8080'
-                }
+                
+                echo "Perform a security scan using a tool (e.g., OWASP ZAP)"
+                echo 'owasp-zap -cmd -quickurl http://localhost:8080'
+                
             }
         }
         stage('Deploy to Staging') {
             steps {
-                script {
-                    echo "Deploy the application to a staging server (e.g., AWS EC2 instance) using a deployment tool (e.g., Ansible)"
-                    echo 'ansible-playbook -i staging-inventory deploy.yml'
-                }
+                
+                echo "Deploy the application to a staging server (e.g., AWS EC2 instance) using a deployment tool (e.g., Ansible)"
+                echo 'ansible-playbook -i staging-inventory deploy.yml'
+                
             }
         }
         stage('Integration Tests on Staging') {
             steps {
-                script {
-                    echo "Run integration tests on the staging environment"
-                    echo 'mvn integration-test'
-                }
+                
+                echo "Run integration tests on the staging environment"
+                echo 'mvn integration-test'
+                
             }
         }
         stage('Deploy to Production') {
             steps {
-                script {
-                    echo "Deploy the application to a production server (e.g., AWS EC2 instance) using a deployment tool (e.g., Ansible)"
-                    echo 'ansible-playbook -i production-inventory deploy.yml'
-                }
+                
+                echo "Deploy the application to a production server (e.g., AWS EC2 instance) using a deployment tool (e.g., Ansible)"
+                echo 'ansible-playbook -i production-inventory deploy.yml'
+                
             }
         }
     }
 }
+
