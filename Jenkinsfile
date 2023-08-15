@@ -17,10 +17,10 @@ pipeline {
                 echo 'mvn integration-test'
             }
             post {
-                always {
-                    emailext subject: "Code Analysis - ${currentBuild.result}",
-                             body: "Code Analysis status: ${currentBuild.result}",
-                             to: "xiao2374390271@gmail.com"
+                success{
+                    mail to: "xiao2364390271@gmail.com",
+                    subject: "Cello~",
+                    body: "Build was successful"
                 }
             }
         }
